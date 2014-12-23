@@ -1,0 +1,45 @@
+<div class="create-issue">
+  <h3>Create issue - <a href="/#/" class="btn">Go Back</a></h3>
+
+
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" ng-model="form.title" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+      <label for="comentario">Comentário</label>
+      <textarea class="form-control" rows="3" ng-model="form.body"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="">Assignee</label>
+      <select name="" id="" ng-model="form.assignee">
+        <option ng-repeat="user in users"
+        value="{{ user.login }}">
+        {{ user.login }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Label</label>
+
+    <div class="checkbox">
+      <label ng-repeat="label in labels">
+        <input
+        type="checkbox"
+        name="labels[]"
+        value="{{label.name}}"
+        ng-checked="selection.indexOf(label.name) > -1"
+        ng-click="toggleSelection(label.name)"
+        > {{label.name}}
+      </label>
+    </div>
+  </div>
+
+  <button ng-click="createIssue(form)" class="btn btn-primary">Create Issue</button>
+</form>
+
+</div>
