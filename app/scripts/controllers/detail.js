@@ -10,6 +10,7 @@
 angular.module('gitProjApp')
   .controller('DetailCtrl', function ($scope, $http, $routeParams) {
 
+    $scope.issue;
     $scope.comments = [];
     $scope.issueId = $routeParams.id;
 
@@ -19,7 +20,7 @@ angular.module('gitProjApp')
     })
     .success(function( data ){
       $scope.config = data;
-      $scope.getComments(data.token);
+      $scope.getIssue(data.token);
     });
 
     $scope.getComments = function(token) {
@@ -29,7 +30,17 @@ angular.module('gitProjApp')
       })
       .success(function( data ){
         $scope.comments = data;
-        console.log( $scope.comments );
+      })
+    }
+
+    $scope.getIssue = function(token) {
+      $http({
+        method: 'GET',
+        url: $scope.config.url + 'issues/'+ $scope.issueId +'?&access_token=' + token,
+      })
+      .success(function( data ){
+        $scope.issue = data;
+        $scope.getComments( token )
       })
     }
 

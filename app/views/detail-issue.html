@@ -1,4 +1,23 @@
 <div class="center">
+  <a href="#/" class="fleft">back issues</a>
+
+  <h1>{{ issue.title }}</h1>
+  <div class="group-labels">
+      <span
+      ng-repeat="label in issue.labels"
+      class="btn btn-sm labels-list"
+      style="background: #{{ label.color }}">
+      {{ label.name }}
+    </span>
+  </div>
+
+
+  <div class="body-issue markdown-body">
+    {{ issue.body }}
+  </div>
+
+
+  <h2>Comments</h2>
   <div ng-repeat="comment in comments" class="issue-group col-md-12">
     <header class="title">
       <img ng-src="{{ comment.user.avatar_url }}"
@@ -13,15 +32,8 @@
     </header>
 
     <div class="content">
-      <div class="body-issue" ng-bind-html="comment.body"></div>
-
-      <div class="group-labels">
-        <span
-          ng-repeat="label in issue.labels"
-          class="btn btn-sm labels-list"
-          style="background: #{{ label.color }}">
-          {{ label.name }}
-        </span>
+      <div class="body-issue markdown-body">
+        <markdown src="{{ comment.body }}"></markdown>
       </div>
     </div>
   </div>

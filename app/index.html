@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/github-markdown-css/github-markdown.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -75,12 +76,16 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/services/config.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/issue.js"></script>
         <script src="scripts/controllers/detail.js"></script>
+        <script src="scripts/directives/markdown.js"></script>
+        <script src="scripts/directives/single-markdow.js"></script>
         <!-- endbuild -->
 </body>
 </html>
