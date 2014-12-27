@@ -17,7 +17,7 @@
       <img src="http://www.artdnet.com/templates/tmpl_artdnet/images/default_user.png"
         alt=""
         ng-if="!issue.assignee.avatar_url">
-      <span class="number-issue">#{{ issue.number }}</span>
+      <a href="#/detail/{{ issue.number }}" class="number-issue">#{{ issue.number }}</a>
     </header>
 
     <div class="content">

@@ -1,7 +1,9 @@
 {
   "name": "gitproj",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.10.6"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
@@ -31,7 +33,8 @@
     "karma-jasmine": "^0.3.2",
     "karma-phantomjs-launcher": "^0.1.4",
     "load-grunt-tasks": "^0.4.0",
-    "time-grunt": "^0.3.1"
+    "time-grunt": "^0.3.1",
+    "xmlhttprequest": "^1.6.0"
   },
   "engines": {
     "node": ">=0.10.0"
