@@ -1,0 +1,28 @@
+<div class="center">
+  <div ng-repeat="comment in comments" class="issue-group col-md-12">
+    <header class="title">
+      <img ng-src="{{ comment.user.avatar_url }}"
+      alt="{{ comment.user.login }}"
+      ng-if="comment.user.avatar_url">
+
+      <img src="http://www.artdnet.com/templates/tmpl_artdnet/images/default_user.png"
+      alt=""
+      ng-if="!comment.user.avatar_url">
+
+      <span class="number-issue">{{ comment.updated_at | date}}</span>
+    </header>
+
+    <div class="content">
+      <div class="body-issue" ng-bind-html="comment.body"></div>
+
+      <div class="group-labels">
+        <span
+          ng-repeat="label in issue.labels"
+          class="btn btn-sm labels-list"
+          style="background: #{{ label.color }}">
+          {{ label.name }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
