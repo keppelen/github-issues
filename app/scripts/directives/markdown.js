@@ -7,7 +7,7 @@
  * # markdown
  */
 angular.module('gitProjApp')
-  .directive('markdown', function ($http) {
+  .directive('markdown', function () {
     var converter = new Showdown.converter();
     return {
       restrict: 'E',

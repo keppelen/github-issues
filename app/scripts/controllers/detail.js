@@ -8,20 +8,12 @@
  * Controller of the gitProjApp
  */
 angular.module('gitProjApp')
-  .controller('DetailCtrl', function ($scope, $http, $routeParams) {
+  .controller('DetailCtrl', function ($scope, $http, $routeParams, config) {
 
-    $scope.issue;
+    $scope.issue = [];
     $scope.comments = [];
     $scope.issueId = $routeParams.id;
-
-    $http({
-      method: 'GET',
-      url: 'http://localhost:9989/token'
-    })
-    .success(function( data ){
-      $scope.config = data;
-      $scope.getIssue(data.token);
-    });
+    $scope.config = config;
 
     $scope.getComments = function(token) {
       $http({
@@ -30,8 +22,8 @@ angular.module('gitProjApp')
       })
       .success(function( data ){
         $scope.comments = data;
-      })
-    }
+      });
+    };
 
     $scope.getIssue = function(token) {
       $http({
@@ -40,9 +32,11 @@ angular.module('gitProjApp')
       })
       .success(function( data ){
         $scope.issue = data;
-        $scope.getComments( token )
-      })
-    }
+        $scope.getComments( token );
+      });
+    };
+
+    $scope.getIssue($scope.config.token);
 
 
   });

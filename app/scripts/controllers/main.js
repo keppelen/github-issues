@@ -8,22 +8,13 @@
  * Controller of the gitProjApp
  */
 angular.module('gitProjApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, config) {
 
     $scope.issues = [];
     $scope.backlog = [];
     $scope.progress = [];
     $scope.done = [];
-    $scope.config = {};
-
-    $http({
-      method: 'GET',
-      url: 'http://localhost:9989/token'
-    })
-    .success(function( data ){
-      $scope.config = data;
-      $scope.getIssues(data.token);
-    });
+    $scope.config = config;
 
     $scope.getIssues = function( token ) {
       $http({
@@ -37,14 +28,14 @@ angular.module('gitProjApp')
 
           if ( val.labels.length > 0 ) {
 
-            val.labels.forEach(function(teste){
-              if ( teste.name === 'backlog' ) {
+            val.labels.forEach(function(issue){
+              if ( issue.name === 'backlog' ) {
                 $scope.backlog.push( val );
               }
-              if ( teste.name === 'in progress' ) {
+              if ( issue.name === 'in progress' ) {
                 $scope.progress.push( val );
               }
-              if ( teste.name === 'done' ) {
+              if ( issue.name === 'done' ) {
                 $scope.done.push( val );
               }
             });
@@ -53,5 +44,7 @@ angular.module('gitProjApp')
         });
       });
     };
+
+    $scope.getIssues( $scope.config.token );
 
   });

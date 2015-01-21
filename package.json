@@ -2,10 +2,13 @@
   "name": "gitproj",
   "version": "0.0.0",
   "dependencies": {
-    "express": "^4.10.6"
+    "express": "^4.10.6",
+    "node-sass": "^2.0.0-beta",
+    "body-parser": "^1.10.0"
   },
   "devDependencies": {
     "grunt": "^0.4.1",
+    "node-static": "~0.7.3",
     "grunt-autoprefixer": "^0.7.3",
     "grunt-concurrent": "^0.5.0",
     "grunt-contrib-clean": "^0.5.0",

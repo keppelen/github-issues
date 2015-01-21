@@ -8,16 +8,15 @@
  * Service in the gitProjApp.
  */
 angular.module('gitProjApp')
-  .service('config', function config( $http ) {
-    var obj;
-
-    $http({
-      method: 'GET',
-      url: 'http://localhost:9989/token'
-    })
-    .success(function( data ){
-      console.log(obj, data);
-    });
+  .service('config', function config(  ) {
+    
+    var obj = {
+        'clientId': '8525ac7a0c9fe5d45644',
+        'clientSecret': 'e48378ecd961810a35a1e04efb65235679e813ea',
+        'url': 'https://api.github.com/repos/Planedia/planedia-site/',
+        'members': 'https://api.github.com/orgs/planedia/members',
+        'token': '395d5b9c48d1283c0567dffb9f7a90e98f90441a'
+      };
 
     return obj;
   });
