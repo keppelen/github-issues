@@ -17,7 +17,7 @@ angular.module('gitProjApp')
       $scope.form = form;
       $scope.form.labels = [];
       $scope.form.labels = $scope.label;
-      $scope.form.labels.push('backlog');
+      // $scope.form.labels.push('backlog');
 
       if ( !$scope.form.title ) {
         window.alert('Você deve colocar um titulo para issue');
@@ -39,7 +39,7 @@ angular.module('gitProjApp')
       })
       .success(function( ){
         window.alert(' Issue criada com sucesso ');
-        window.reload();
+        window.location = 'http://static.planedia.com/issues/index.html#/';
       });
     };
 
