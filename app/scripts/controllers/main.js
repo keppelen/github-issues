@@ -35,13 +35,17 @@ angular.module('gitProjApp')
               if ( issue.name === 'in progress' ) {
                 $scope.progress.push( val );
               }
-              if ( issue.name === 'done' ) {
-                $scope.done.push( val );
-              }
             });
           }
-
         });
+      });
+
+      $http({
+        method: 'GET',
+        url: $scope.config.url + 'issues?&state=closed&access_token=' + token,
+      })
+      .success(function( data ){
+        $scope.done = data;
       });
     };
 

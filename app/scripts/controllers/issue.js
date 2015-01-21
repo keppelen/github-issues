@@ -39,6 +39,7 @@ angular.module('gitProjApp')
       })
       .success(function( ){
         window.alert(' Issue criada com sucesso ');
+        window.reload();
       });
     };
 
